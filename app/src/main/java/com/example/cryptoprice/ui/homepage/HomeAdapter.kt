@@ -1,4 +1,4 @@
-package com.example.cryptoprice.homepage.adapter
+package com.example.cryptoprice.ui.homepage
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoprice.R
-import com.example.cryptoprice.data.model.Crypto
+import com.example.cryptoprice.data.entities.Crypto
 
 class HomeAdapter(private val mList: List<Crypto>) : RecyclerView.Adapter<HomeAdapter.HomeAdapterViewHolder>() {
 
