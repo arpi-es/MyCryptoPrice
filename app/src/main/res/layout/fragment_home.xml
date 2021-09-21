@@ -3,15 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.homepage.HomeFragment"
-    android:background="@color/black">
+    tools:context=".ui.homepage.HomeFragment">
 
-
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerHome"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:gravity="center"
-        android:textColor="@android:color/holo_red_dark"/>
+        android:layout_height="match_parent" />
+
 
 </FrameLayout>

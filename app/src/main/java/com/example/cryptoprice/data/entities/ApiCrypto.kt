@@ -1,8 +1,14 @@
 package com.example.cryptoprice.data.entities
 
+import com.google.gson.annotations.SerializedName
+
+
+
+
 data class ApiCrypto(
-    val cryptos: List<Crypto>,
-    val timestamp: Long
+        @SerializedName("data")
+        val cryptos: List<Crypto>,
+        val timestamp: Long
 )
 
 

@@ -10,33 +10,21 @@ import com.example.cryptoprice.data.entities.Crypto
 @Database(entities = [Crypto::class], version = 1, exportSchema = false)
 abstract class CryptoDatabase : RoomDatabase() {
 
-    abstract val cryptoDatabaseDao: CryptoDatabaseDao
-
+    abstract fun  cryptoDatabaseDao(): CryptoDatabaseDao
 
     companion object{
 
         @Volatile
-        private var INSTANCE : CryptoDatabase? = null
+        private var instance : CryptoDatabase? = null
 
-        fun getInstance(context: Context): CryptoDatabase {
-            synchronized(this) {
 
-                var instance = INSTANCE
-                if (instance == null) {
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        CryptoDatabase::class.java,
-                        "crypto_database"
-                    )
-                        .fallbackToDestructiveMigration()
-                        .build()
+        fun getDatabase(context: Context): CryptoDatabase =
+            instance ?: synchronized(this) { instance ?: buildDatabase(context).also { instance = it } }
 
-                    INSTANCE = instance
-                }
-
-                return instance
-            }
-        }
+        private fun buildDatabase(appContext: Context) =
+            Room.databaseBuilder(appContext, CryptoDatabase::class.java, "characters")
+                .fallbackToDestructiveMigration()
+                .build()
     }
 
 }
