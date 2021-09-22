@@ -1,5 +1,6 @@
 package com.example.cryptoprice.data.entities
 
+import androidx.databinding.Bindable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

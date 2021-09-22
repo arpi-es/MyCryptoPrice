@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -25,18 +26,7 @@ class HomeFragment : Fragment(), HomeAdapter.CryptoItemListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-
-//        lifecycleScope.launch {
-//            val result =  viewModel.getAllTest()
-//            Log.i("MYTAG2", "result" )
-//            Log.i("MYTAG2", result.body().toString())
-//
-//        }
-
-
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,24 +53,22 @@ class HomeFragment : Fragment(), HomeAdapter.CryptoItemListener {
 //
                Resource.Status.SUCCESS -> {
                    Log.i("MYTAG", it.data!!.size.toString())
+                   Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+
+                   if (!it.data.isNullOrEmpty()) adapter.submitList(ArrayList(it.data))
+
+
+//                   if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))
+
                }
-//
-               Resource.Status.ERROR ->  Log.i("MYTAG", "ERROR")
+
+
+               Resource.Status.ERROR ->
+                   Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+
                Resource.Status.LOADING ->  Log.i("MYTAG", "LOADING")
-//
-//
-////               Resource.Status.SUCCESS -> {
-//////                   binding.progressBar.visibility = View.GONE
-//////                   if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))
-////                   it.data?.let { it1 -> Toast.makeText(requireContext(), it1.size, Toast.LENGTH_SHORT).show() }
-////
-////
-////               }
-//////               Resource.Status.ERROR ->
-//////                   Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-////
-//////               Resource.Status.LOADING ->
-//////                   binding.progressBar.visibility = View.VISIBLE
+//              Resource.Status.LOADING ->
+//                   binding.progressBar.visibility = View.VISIBLE
            }
        })
 

@@ -1,27 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
 
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/txtName"
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="item"
+            type="com.example.cryptoprice.data.entities.Crypto" />
+
+    </data>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bitcoin" />
-
-    <TextView
-        android:id="@+id/txtSymbol"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BTC" />
-
-    <TextView
-        android:id="@+id/txtPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="46312$" />
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:background="@color/cardview_dark_background">
 
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.id}" />
+
+        <TextView
+            android:id="@+id/txtSymbol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.symbol}" />
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.priceUsd}" />
+
+
+    </LinearLayout>
+</layout>

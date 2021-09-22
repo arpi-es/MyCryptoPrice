@@ -9,15 +9,4 @@ class HomeViewModel @ViewModelInject constructor(private val repository: CryptoR
 
         val cryptos = repository.getCryptos()
 
-
-
-//        suspend fun getAllTest() : Response<ApiCrypto> {
-//           val a : Response<ApiCrypto> = remoteDataSource.getTest()
-//            Log.i("MYTAG2", a.message() )
-//
-//
-//            return  a
-//
-//        }
-
 }
