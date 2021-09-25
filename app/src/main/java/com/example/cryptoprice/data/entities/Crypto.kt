@@ -1,6 +1,5 @@
 package com.example.cryptoprice.data.entities
 
-import androidx.databinding.Bindable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -12,7 +11,7 @@ data class Crypto(
     val id: String,
     val name: String,
     val symbol: String,
-    val priceUsd: String,
+    val priceUsd: Float,
     val changePercent24Hr: String ?=null,
     val explorer: String?=null,
     val marketCapUsd: String?=null,

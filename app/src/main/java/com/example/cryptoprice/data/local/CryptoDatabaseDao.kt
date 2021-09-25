@@ -19,7 +19,7 @@ interface CryptoDatabaseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(cryptos : List<Crypto> )
 
-    @Query("SELECT * FROM tblCrypto ORDER BY id DESC")
+    @Query("SELECT * FROM tblCrypto ORDER BY cast(rank AS INT) Asc")
     fun getAll(): LiveData<List<Crypto>>
 
 //    @Query("SELECT * from tblCrypto WHERE id = :id")
