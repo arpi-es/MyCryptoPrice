@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_cryptoDetailFragment"
             app:destination="@id/cryptoDetailFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/cryptoDetailFragment"
