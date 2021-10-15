@@ -8,8 +8,7 @@ import com.example.cryptoprice.data.entities.Crypto
 import com.example.cryptoprice.data.repository.CryptoRepository
 
 
-class HomeViewModel @ViewModelInject constructor(private val repository: CryptoRepository) :
-    ViewModel() {
+class HomeViewModel @ViewModelInject constructor(private val repository: CryptoRepository) : ViewModel() {
 
     val cryptos = repository.getCryptos()
 

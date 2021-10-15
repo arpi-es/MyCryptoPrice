@@ -27,28 +27,4 @@ class MainActivity : AppCompatActivity() {
 //        setupViewModel()
 //        setupObserver()
     }
-
-
-//    private fun setupUI() {
-//
-//        val recyclerview = findViewById<RecyclerView>(R.id.recylerHome)
-//        recyclerview.layoutManager = LinearLayoutManager(this)
-//        val data = ArrayList<Crypto>()
-//
-//        for (i in 1..20) {
-//            data.add(Crypto( i.toString(), "test", "symbol", "122"))
-//        }
-//
-//        val adapter = HomeAdapter(data)
-//        recyclerview.adapter = adapter
-//
-//    }
-//
-//    private fun setupViewModel() {
-//    }
-//
-//    private fun setupObserver() {
-//    }
-
-
 }
