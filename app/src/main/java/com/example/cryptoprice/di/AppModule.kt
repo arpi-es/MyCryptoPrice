@@ -1,6 +1,7 @@
 package com.example.cryptoprice.di
 
 import android.content.Context
+import androidx.room.Room
 import com.example.cryptoprice.data.local.CryptoDatabase
 import com.example.cryptoprice.data.local.CryptoDatabaseDao
 import com.example.cryptoprice.data.remote.CryptoRemoteDataSource
@@ -38,9 +39,20 @@ object AppModule {
     @Provides
     fun provideCryptoRemoteDataSource(cryptoService: CryptoService) = CryptoRemoteDataSource(cryptoService)
 
-    @Singleton
+//    @Singleton
+//    @Provides
+//    fun provideDatabase(@ApplicationContext appContext: Context) = CryptoDatabase.getDatabase(appContext)
+
     @Provides
-    fun provideDatabase(@ApplicationContext appContext: Context) = CryptoDatabase.getDatabase(appContext)
+    @Singleton
+    fun provideDatabase(@ApplicationContext appContext: Context): CryptoDatabase {
+        return Room.databaseBuilder(
+            appContext,
+            CryptoDatabase::class.java,
+            "cryptodatabase"
+        ).build()
+    }
+
 
     @Singleton
     @Provides

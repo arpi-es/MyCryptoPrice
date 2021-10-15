@@ -71,14 +71,14 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="6dp"
                     android:text="@{item.symbol}"
-                    tools:text="name" />
+                    android:textColor="@color/gray"
+                    tools:text="symbol" />
 
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/txtPrice"
-
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
